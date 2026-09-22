@@ -5,7 +5,7 @@
 
 struct screenObject 
 {
-	std::string contents;
+	std::vector<char> contents;
 	int contentsWidth;
 	int contentsHeight;
 };

@@ -41,7 +41,7 @@ void ScreenManager::printScreen()
     }
 }
 
-ScreenManager::ScreenManager() : screenSize(widthHeight(80, 20)), currentBuffer(&bufferOne)
+ScreenManager::ScreenManager() : screenSize(widthHeight(80, 30)), currentBuffer(&bufferOne)
 {
     bufferOne = generateBuffers();
     bufferTwo = generateBuffers('$');
@@ -59,12 +59,24 @@ void ScreenManager::setScreenSize()
 
 void ScreenManager::drawToBuffer(screenObject item)
 {
-
+    for (int i = 0; i < item.contentsHeight; i++)
+    {
+        for (int j = 0; j < item.contentsWidth; j++)
+        {
+            hiddenBuffer->at(j + i * (screenSize.x + 1)) = item.contents[j + i * item.contentsWidth];
+        }
+    }
 }
 
 void ScreenManager::drawToBuffer(screenObject item, int startX, int startY)
 {
-
+    for (int i = startY; i < item.contentsHeight + startY; i++)
+    {
+        for (int j = startX; j < item.contentsWidth + startX; j++)
+        {
+            hiddenBuffer->at(j + i * (screenSize.x + 1)) = item.contents[j + i * item.contentsWidth];
+        }
+    }
 }
 
 void ScreenManager::swapBuffers()

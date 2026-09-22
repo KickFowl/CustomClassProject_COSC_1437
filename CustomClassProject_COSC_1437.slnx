@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="CustomClassProject_COSC_1437/CustomClassProject_COSC_1437.vcxproj" />
+  <Project Path="CustomClassProject_COSC_1437/CustomClassProject_COSC_1437.vcxproj" Id="c94d13ac-9bae-4b24-88fe-73e966fa56a9" />
 </Solution>

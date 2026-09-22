@@ -5,6 +5,24 @@
 
 #include "screenManager.h"
 
+screenObject square
+{
+    {
+    'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X',
+    'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X',
+    'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X',
+    'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X',
+    'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X',
+    'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X',
+    'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X',
+    'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X',
+    'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X',
+    'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X',
+    'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X',
+    },
+    10,
+    10
+};
 
 int main()
 {
@@ -20,6 +38,9 @@ int main()
 
         if (GetAsyncKeyState(VK_ESCAPE) & 0x8000) {
             break;
+        }
+        if (GetAsyncKeyState(VK_SPACE) & 0x8000) {
+            mainScreen.drawToBuffer(square, 5, 5);
         }
     }
 
