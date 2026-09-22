@@ -1,33 +1,27 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include <windows.h>
+
+#include "screenManager.h"
 
 
 int main()
 {
 
-	std::string dump = "";
+	
+    ScreenManager mainScreen;
 
-	while (true)
-	{
+    while (true)
+    {
+        mainScreen.swapBuffers();
 
-		for (int x = 0; x < 120; x++)
-		{
-			std::cout << std::string(x, '0') << 'X' << '\n';
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
-			std::this_thread::sleep_for(std::chrono::milliseconds(1));
-
-			std::system("cls");
-		}
-
-		std::cin >> dump;
-
-		if (dump == "x")
-		{
-			break;
-		}
-	}
-
+        if (GetAsyncKeyState(VK_ESCAPE) & 0x8000) {
+            break;
+        }
+    }
 
 
 	return 0;

@@ -25,7 +25,12 @@ private:
 	std::vector<char> bufferOne;
 	std::vector<char> bufferTwo;
 
-	std::vector<char> generateBuffers(int x, int y);
+    std::vector<char>* currentBuffer;
+    std::vector<char>* hiddenBuffer;
+
+	std::vector<char> generateBuffers();
+    std::vector<char> generateBuffers(char fill);
+    void printScreen();
 
 public:
 
@@ -33,13 +38,12 @@ public:
 	ScreenManager(int x, int y);
 
 	void setScreenSize();
-	void setBufferSize();
-	void setBufferSize(widthHeight);
 
 	void drawToBuffer(screenObject item);
 	void drawToBuffer(screenObject item, int startX, int startY);
 
 	void swapBuffers();
+
 
 	~ScreenManager();
 };
